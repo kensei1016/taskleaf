@@ -9,5 +9,5 @@ h1 タスクの新規登録
     = f.text_field :name, class: 'form-control', id: :name
   .form-group
     = f.label :description
-    = f.text_field :description, class: 'form-control', id: :description
+    = f.text_area :description, rows: 5, class: 'form-control', id: :description
   = f.submit nil, class: 'btn btn-primary'
