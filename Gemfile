@@ -65,3 +65,8 @@ gem 'slim-rails'
 gem 'html2slim'
 
 gem 'bootstrap'
+
+gem 'hirb'
+gem 'hirb-unicode'
+
+gem 'pry-byebug'
