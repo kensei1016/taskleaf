@@ -70,3 +70,5 @@ gem 'hirb'
 gem 'hirb-unicode'
 
 gem 'pry-byebug'
+
+gem 'bcrypt', '~> 3.1.7'
