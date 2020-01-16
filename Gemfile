@@ -61,14 +61,22 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# slim
 gem 'slim-rails'
 gem 'html2slim'
 
+# bootstrap
 gem 'bootstrap'
 
+# irbのSQL結果整形
 gem 'hirb'
 gem 'hirb-unicode'
 
+# デバック
 gem 'pry-byebug'
 
+# 認証
 gem 'bcrypt', '~> 3.1.7'
+
+# 自動リンク作成
+gem 'rails_autolink'
