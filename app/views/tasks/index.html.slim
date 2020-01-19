@@ -18,8 +18,11 @@ h1 タスク一覧
 table.table.table-hover
   thead.thead-default
     tr
-      th = Task.human_attribute_name(:name)
-      th = Task.human_attribute_name(:created_at)
+      / ransackのソート機能
+      th = sort_link(@q, :name, default_order: :desc)
+      / th = Task.human_attribute_name(:name)
+      th = sort_link(@q, :created_at, default_order: :desc)
+      / th = Task.human_attribute_name(:created_at)
       th
   tbody
     - @tasks.each do |task|
