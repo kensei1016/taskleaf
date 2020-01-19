@@ -82,3 +82,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # 自動リンク作成
 gem 'rails_autolink'
+
+# 検索機能
+gem 'ransack'
