@@ -27,6 +27,7 @@ class TasksController < ApplicationController
     end
 
     if @task.save
+      TaskMailer.creation_email(@task).deliver_now
       # @task を指定することで"/tasks/:id"(詳細画面)への遷移となる
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
