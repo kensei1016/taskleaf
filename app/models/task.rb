@@ -9,6 +9,9 @@ class Task < ApplicationRecord
 
   scope :recent, -> {order(created_at: :desc)}
 
+  # kaminari_config.rb よりも優先される
+  paginates_per 10
+
   def validate_name_not_including_comma
     errors.add(:name, 'にカンマを含めることはできません') if name&.include?(',')
   end

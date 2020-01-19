@@ -85,3 +85,6 @@ gem 'rails_autolink'
 
 # 検索機能
 gem 'ransack'
+
+# ページネーション
+gem 'kaminari'
