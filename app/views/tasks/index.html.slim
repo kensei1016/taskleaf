@@ -20,9 +20,7 @@ table.table.table-hover
     tr
       / ransackのソート機能
       th = sort_link(@q, :name, default_order: :desc)
-      / th = Task.human_attribute_name(:name)
       th = sort_link(@q, :created_at, default_order: :desc)
-      / th = Task.human_attribute_name(:created_at)
       th
   tbody
     - @tasks.each do |task|
@@ -34,3 +32,7 @@ table.table.table-hover
           = link_to '削除', task, method: :delete, data: {confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger mr-3'
 
 = link_to 'エクスポート', tasks_path(format: :csv), class: 'btn btn-primary mb-3'
+
+= form_tag import_tasks_path, multipart: true, class: 'mb-3' do
+  = file_field_tag :file
+  = submit_tag "インポート", class: 'btn btn-primary'
