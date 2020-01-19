@@ -17,11 +17,27 @@ class Task < ApplicationRecord
     self.name = '名前なし' if name.blank?
   end
 
+  # [ransack] search処理に使用するカラムを指定（指定以外は無視）
   def self.ransackable_attributes(auth_object = nil)
     %w[name created_at]
   end
 
+  # [ransack] search処理の関連カラムを指定
   def self.ransackable_association(auth_object = nil)
     []
+  end
+
+  # CSVデータの出力順序
+  def self.csv_attributes
+    ["name", 'description', "created_at", "updated_at"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |task|
+        csv << csv_attributes.map{ |attr| task.send(attr) }
+      end
+    end
   end
 end
