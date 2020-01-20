@@ -38,8 +38,8 @@ class TasksController < ApplicationController
     end
 
     if @task.save
-      TaskMailer.creation_email(@task).deliver_now
-      SampleJob.perform_later
+      # TaskMailer.creation_email(@task).deliver_now
+      # SampleJob.perform_later
       # @task を指定することで"/tasks/:id"(詳細画面)への遷移となる
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
@@ -57,7 +57,8 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
+    # redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
+    head :no_content # HTTPステータス(204:成功)
   end
 
   private
